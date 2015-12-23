@@ -82,3 +82,6 @@ invy %*% y
 y %*% invy
 invz %*% z
 z %*% invz 
+
+
+##With this mission is accomplished
