@@ -23,37 +23,3 @@ inverse <- pseudoinverse(data, ...)
 x$setinverse(inverse)
 inverse
 }
-
-
-#Below are few experiments tried to check if it works
-#lets check for square matrix first
-x <- matrix(rpois(16, 2), nrow = 4)
-mcmx <- makeCacheMatrix(x)
-mcmx$get()
-cacheSolve(mcmx)
-cacheSolve(mcmx)
-invx <- cacheSolve(mcmx)
-
-#lets check with rectangular matrix where row > col
-y <- matrix(rpois(15, 2), nrow = 5, ncol = 3)
-mcmy <- makeCacheMatrix(y)
-mcmy$get()
-cacheSolve(mcmy)
-cacheSolve(mcmy)
-invy <- cacheSolve(mcmy)
-
-#lets check with rectangular matrix where row < col
-z <- matrix(rpois(15, 2), nrow = 3, ncol = 5)
-mcmz <- makeCacheMatrix(z)
-mcmz$get()
-cacheSolve(mcmz)
-cacheSolve(mcmz)
-invz <- cacheSolve(mcmz)
-
-#Below we check whether the multiplication of matrix and its inverse gives identity or not
-invx %*% x 
-x %*% invx
-invy %*% y
-y %*% invy
-invz %*% z
-z %*% invz 
